@@ -28,6 +28,9 @@ export class AuthService {
     return this.http.post<TokenResponse>('http://127.0.0.1:8000/api/auth/users/', RegisterBody);
   } 
 
+  permissions():Observable<any>{
+    return this.http.get('http://127.0.0.1:8000/api/auth/permissions/')
+  }
   logout(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/auth/logout/');
   }
