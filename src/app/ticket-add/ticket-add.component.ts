@@ -15,6 +15,7 @@ export class TicketAddComponent implements OnInit {
   public TicketStatusEnum: any = TicketStatusEnum;
 
   addForm: FormGroup;
+  showNav :boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +25,7 @@ export class TicketAddComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.showNav = false;
     if (!this.authService.isAuthenticated()) {
       this.router.navigate(['login']);
       return;

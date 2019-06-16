@@ -1,8 +1,10 @@
-<app-navbar></app-navbar>
 <div class="col-md-12 ticket-container">
     <div class="col-md-12">
-        <button class="btn btn-success" style="width:100px" (click)="add()"><i class="fa fa-plus-square"></i></button>
+        <input type="text" class="form-control" style="width: 20%" [(ngModel)]="searchText" placeholder="buscar">
+        <button class="btn btn-success pull-right" (click)="add()"><i class="fa fa-plus-square"></i></button>
     </div>
+    <br>
+    <br>
     <div class="col-md-12">
         <table class="table table-striped">
             <thead>
@@ -15,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let ticket of tickets">
+                <tr *ngFor="let ticket of tickets | filter: {title: searchText, description:searchText}">
                     <th scope="row">{{ ticket.id }}</th>
                     <td>{{ ticket.title }}</td>
                     <td>{{ ticket.description }}</td>

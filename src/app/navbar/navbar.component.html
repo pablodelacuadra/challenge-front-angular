@@ -1,22 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">Ticket System</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf='!showNav'>
+    <a class="navbar-brand">Sistema de Tickets</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a routerLink="/ticket-list">Home</a>
+                <a class="nav-link" routerLink="/ticket-list">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a routerLink="/ticket-edit">Edit Ticket</a>
-            </li>
-            <li class="nav-item active">
-                <a routerLink="/ticket-add">Add Ticket</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" (click)="logout()">Cerrar Sesión</a>
+                <a class="nav-link" routerLink="/ticket-add">Agregar</a>
             </li>
         </ul>
+        <li class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-success my-2 my-sm-0" (click)="logout()" type="submit">Cerrar Sesion</button>
+        </li>
     </div>
 </nav>

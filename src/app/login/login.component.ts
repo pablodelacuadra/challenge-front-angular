@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   
   loginForm: FormGroup;
   invalidLogin: boolean;
+  showNav: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,6 +48,7 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit() {
     window.localStorage.removeItem('token');
+    this.showNav = false;
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
       password: ['', Validators.required]

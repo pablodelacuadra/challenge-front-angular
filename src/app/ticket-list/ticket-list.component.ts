@@ -15,7 +15,7 @@ export class TicketListComponent implements OnInit {
   tickets: Ticket[];
 
   public TicketStatusEnum = TicketStatusEnum;
-
+  showNav: boolean;
   constructor(
     private router: Router,
     private ticketService: TicketService,
@@ -23,6 +23,7 @@ export class TicketListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showNav = false;
     if (!this.authService.isAuthenticated()) {
       this.router.navigate(['login']);
       return;
