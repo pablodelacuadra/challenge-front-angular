@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="col-md-12 ticket-container">
+    <div class="col-md-12">
+        <button class="btn btn-success" style="width:100px" (click)="add()"><i class="fa fa-plus-square"></i></button>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td scope="col">Id</td>
+                    <td scope="col">Título</td>
+                    <td scope="col">Descripción</td>
+                    <td scope="col">Status</td>
+                    <td scope="col">Creación</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ticket of tickets">
+                    <th scope="row">{{ ticket.id }}</th>
+                    <td>{{ ticket.title }}</td>
+                    <td>{{ ticket.description }}</td>
+                    <td>{{ TicketStatusEnum[ticket.status] }}</td>
+                    <td>{{ ticket.created_at | date: 'medium' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
